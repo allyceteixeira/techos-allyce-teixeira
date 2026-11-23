@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+const { testarConexao } = require('./config/database');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -8,7 +9,6 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-// Rota de teste
 app.get('/api/status', (req, res) => {
     res.json({
         sistema: 'TechOS API',
@@ -18,6 +18,7 @@ app.get('/api/status', (req, res) => {
     });
 });
 
-app.listen(PORT, () => {
+app.listen(PORT, async () => {
     console.log(`Servidor TechOS rodando em http://localhost:${PORT}`);
+    await testarConexao();
 });
