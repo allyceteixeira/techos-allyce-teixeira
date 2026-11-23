@@ -16,6 +16,7 @@ app.use(express.json());
 
 app.use('/api/clientes', clienteRoutes);
 app.use('/api/ordens-servico', ordemServicoRoutes);
+
 app.use('/api/usuarios', usuarioRoutes);
 // app.use('/api/equipamentos', equipamentoRoutes);
 
